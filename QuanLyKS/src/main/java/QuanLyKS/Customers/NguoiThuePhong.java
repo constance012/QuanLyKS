@@ -149,7 +149,10 @@ public class NguoiThuePhong extends ThuePhong implements Constants{
             setGioiTinh();
             setSoCMND();
             setSoDT();
-            soTienThuePhong *= (super.getSoNgayThue() * 0.7);
+            if (super.getSoNguoi() > 2)
+                soTienThuePhong *= (super.getSoNgayThue() * 0.7 + super.getSoNguoi() * 0.2);
+            else
+                soTienThuePhong *= (super.getSoNgayThue() * 0.7);
             bill = new ChiTietHoaDon(maKH, tenKH, diaChi, email, soDT, soCMND, soNgayThue, maPhg, soTienThuePhong, soTienKhachTra, maHoaDon);
         } catch (NumberFormatException u){
                 System.out.println("\nLOI: Gia tri phai la 1 so.");
