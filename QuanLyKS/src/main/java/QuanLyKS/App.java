@@ -299,8 +299,8 @@ public class App implements Constants{
     
     public void in_dshd(){
         try{
+            System.out.println("Xuat danh sach hoa don cua cac khach hang truoc do:");
             for(ThuePhong ob:booking){
-                System.out.println("Xuat danh sach hoa don cua khach hang:");
                 ob.in_DSHoaDon();
             }
         } catch (NullPointerException y){
