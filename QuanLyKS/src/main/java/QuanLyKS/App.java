@@ -167,28 +167,30 @@ public class App implements Constants{
             for (int i=x; i<dsp.length - 1; i++)
                 dsp[i] = dsp[i + 1];
             dsp = Arrays.copyOf(dsp, dsp.length - 1);
+            System.out.println("XOA THANH CONG!");
             System.out.println("\nLUU Y: CAC THAY DOI CHUA DUOC LUU LAI VAO FILE.");
         }
     }
     
     //Hàm sửa đổi thông tin của 1 phòng có sẵn trong danh sách
     public void sua_phong(){
-        try{
-            int x;
-            System.out.println("Nhap STT cua phong can sua doi:");
-            while (true){
-                x = Integer.parseInt(sc.nextLine());
-                if (x < 0 || x >= dsp.length)
-                    System.out.println("STT cua phong can sua doi ko hop le, moi nhap lai:");
-                else
-                    break;
-            }
-            dsp[x] = new Phong();
-            dsp[x].nhap();
-            System.out.println("\nLUU Y: CAC THAY DOI CHUA DUOC LUU LAI VAO FILE.");
-        } catch (NullPointerException y){
-            System.out.println("\nDANH SACH CHUA CO DU LIEU, VUI LONG THU LAI.");
+        int x;
+        System.out.println("Nhap STT cua phong can sua doi:");
+        while (true){
+            x = Integer.parseInt(sc.nextLine());
+            if (x < 0 || x >= dsp.length)
+                System.out.println("STT cua phong can sua doi ko hop le, moi nhap lai:");
+            else
+                break;
         }
+        
+        if (dsp[x] == null)
+            System.out.println("VI TRI NAY CHUA CO DU LIEU, KO THE SUA.");
+        
+        dsp[x] = new Phong();
+        dsp[x].nhap();
+        System.out.println("CHINH SUA THANH CONG!");
+        System.out.println("\nLUU Y: CAC THAY DOI CHUA DUOC LUU LAI VAO FILE.");
     }
     
     //Hàm tìm kiếm phòng dựa trên thuộc tính
