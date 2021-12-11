@@ -204,7 +204,7 @@ public class App implements Constants{
             if (dsp[0] == null)
                 System.out.println("DANH SACH CHUA CO DU LIEU, VUI LONG THU LAI.");
             else{
-				System.out.println("Ban muon tim phong theo thuoc tinh gi?");d
+				System.out.println("Ban muon tim phong theo thuoc tinh gi?");
 				System.out.println("('Loai phong' hay 'Tinh trang' hay 'So nguoi' hay 'ten phong')");
 				while (true){
 					keyword = sc.nextLine();
