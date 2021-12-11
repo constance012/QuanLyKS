@@ -147,6 +147,7 @@ public class App implements Constants{
             dsp[i] = dsp[i - 1];
         dsp[k] = new Phong();
         dsp[k].nhap();
+        System.out.println("THEM PHONG THANH CONG!");
         System.out.println("\nLUU Y: CAC THAY DOI CHUA DUOC LUU LAI VAO FILE.");
     }
     
