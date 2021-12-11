@@ -204,89 +204,89 @@ public class App implements Constants{
             if (dsp[0] == null)
                 System.out.println("DANH SACH CHUA CO DU LIEU, VUI LONG THU LAI.");
             else{
-				System.out.println("Ban muon tim phong theo thuoc tinh gi?");
-				System.out.println("('Loai phong' hay 'Tinh trang' hay 'So nguoi' hay 'ten phong')");
-				while (true){
-					keyword = sc.nextLine();
-					keyword = justify_String(keyword);
+		System.out.println("Ban muon tim phong theo thuoc tinh gi?");
+		System.out.println("('Loai phong' hay 'Tinh trang' hay 'So nguoi' hay 'ten phong')");
+		while (true){
+			keyword = sc.nextLine();
+			keyword = justify_String(keyword);
 
-					//Tìm theo loại phòng
-					if (keyword.equalsIgnoreCase("loai phong")){
-						System.out.println("Nhap loai phong can tim kiem:");
-						input = sc.nextLine();
-						input = justify_String(input);
-						System.out.println("\nKet qua:\n");
-						for (int i=0; i<dsp.length; i++)
-							if (dsp[i].getTenLoaiPhong().equalsIgnoreCase(input)){
-								System.out.printf("STT: %3d ", j);
-								dsp[i].xuat();
-								found = true;
-								j++;
-							}
-							else if (i == dsp.length - 1 && found == false)
-								System.out.println("Khong tim thay phong thoa yeu cau da cho!");
-						break;
+			//Tìm theo loại phòng
+			if (keyword.equalsIgnoreCase("loai phong")){
+				System.out.println("Nhap loai phong can tim kiem:");
+				input = sc.nextLine();
+				input = justify_String(input);
+				System.out.println("\nKet qua:\n");
+				for (int i=0; i<dsp.length; i++)
+					if (dsp[i].getTenLoaiPhong().equalsIgnoreCase(input)){
+						System.out.printf("STT: %3d ", j);
+						dsp[i].xuat();
+						found = true;
+						j++;
 					}
-
-					//Tìm theo tình trạng
-					else if (keyword.equalsIgnoreCase("tinh trang")){
-						System.out.println("Nhap tinh trang cua cac phong can tim kiem:");
-						input = sc.nextLine();
-						input = justify_String(input);
-						System.out.println("\nKet qua:\n");
-						for (int i=0; i<dsp.length; i++)
-							if (dsp[i].getTinhTrang().equalsIgnoreCase(input)){
-								System.out.printf("STT: %3d ", j);
-								dsp[i].xuat();
-								found = true;
-								j++;
-							}
-							else if (i == dsp.length - 1 && found == false)
-								System.out.println("Khong tim thay phong thoa yeu cau da cho!");
-						break;
-					}
-
-					//Tìm theo số người
-					else if (keyword.equalsIgnoreCase("so nguoi")){
-						System.out.println("Nhap so nguoi cua cac phong can tim kiem:");
-						input = sc.nextLine();
-						input = justify_String(input);
-						System.out.println("\nKet qua:\n");
-						for (int i=0; i<dsp.length; i++)
-							if (dsp[i].getSoNguoi() == Integer.parseInt(input)){
-								System.out.printf("STT: %3d ", j);
-								dsp[i].xuat();
-								found = true;
-								j++;
-							}
-							else if (i == dsp.length - 1 && found == false)
-								System.out.println("Khong tim thay phong thoa yeu cau da cho!");
-						break;
-					}
-					
-					//Tìm theo tên phòng
-                    else if (keyword.equalsIgnoreCase("ten phong")){
-                        System.out.println("Nhap ten cua cac phong can tim kiem:");
-                        input = sc.nextLine();
-                        input = justify_String(input);
-                        System.out.println("\nKet qua:\n");
-                        for (int i=0; i<dsp.length; i++)
-                            if (dsp[i].getTenPhong().charAt(0) == input.charAt(0)){
-                                System.out.printf("STT: %3d ", j);
-                                dsp[i].xuat();
-                                found = true;
-                                j++;
-                            }
-                            else if (i == dsp.length - 1 && found == false)
-                                System.out.println("Khong tim thay phong thoa yeu cau da cho!");
-                        break;
-                    }
-
-					//Hỏi lại khi thuộc tính ko hợp lệ
-					else
-						System.out.println("Thuoc tinh can tim ko hop le, moi nhap lai:");
-				}
+					else if (i == dsp.length - 1 && found == false)
+						System.out.println("Khong tim thay phong thoa yeu cau da cho!");
+				break;
 			}
+
+			//Tìm theo tình trạng
+			else if (keyword.equalsIgnoreCase("tinh trang")){
+				System.out.println("Nhap tinh trang cua cac phong can tim kiem:");
+				input = sc.nextLine();
+				input = justify_String(input);
+				System.out.println("\nKet qua:\n");
+				for (int i=0; i<dsp.length; i++)
+					if (dsp[i].getTinhTrang().equalsIgnoreCase(input)){
+						System.out.printf("STT: %3d ", j);
+						dsp[i].xuat();
+						found = true;
+						j++;
+					}
+					else if (i == dsp.length - 1 && found == false)
+						System.out.println("Khong tim thay phong thoa yeu cau da cho!");
+				break;
+			}
+
+			//Tìm theo số người
+			else if (keyword.equalsIgnoreCase("so nguoi")){
+				System.out.println("Nhap so nguoi cua cac phong can tim kiem:");
+				input = sc.nextLine();
+				input = justify_String(input);
+				System.out.println("\nKet qua:\n");
+				for (int i=0; i<dsp.length; i++)
+					if (dsp[i].getSoNguoi() == Integer.parseInt(input)){
+						System.out.printf("STT: %3d ", j);
+						dsp[i].xuat();
+						found = true;
+						j++;
+					}
+					else if (i == dsp.length - 1 && found == false)
+						System.out.println("Khong tim thay phong thoa yeu cau da cho!");
+				break;
+			}
+					
+			//Tìm theo tên phòng
+                    	else if (keyword.equalsIgnoreCase("ten phong")){
+                        	System.out.println("Nhap ten cua cac phong can tim kiem:");
+                        	input = sc.nextLine();
+                        	input = justify_String(input);
+                        	System.out.println("\nKet qua:\n");
+                        	for (int i=0; i<dsp.length; i++)
+                            		if (dsp[i].getTenPhong().charAt(0) == input.charAt(0)){
+                                		System.out.printf("STT: %3d ", j);
+                                		dsp[i].xuat();
+                                		found = true;
+                                		j++;
+                            		}
+                            		else if (i == dsp.length - 1 && found == false)
+                                		System.out.println("Khong tim thay phong thoa yeu cau da cho!");
+                        	break;
+                    	}
+
+			//Hỏi lại khi thuộc tính ko hợp lệ
+			else
+				System.out.println("Thuoc tinh can tim ko hop le, moi nhap lai:");
+		}
+	}
         } catch (NullPointerException y){
             System.out.println("\nDANH SACH CHUA CO DU LIEU, VUI LONG THU LAI.");
         }
