@@ -69,6 +69,7 @@ public class App implements Constants{
                 soNguoi = Integer.parseInt(str[4]);
                 dsp[dsp.length-1] = new Phong(maSo,loai,ten,tinhTrang,soNguoi);
             }
+            System.out.println("DOC FILE TEXT THANH CONG!");
         } catch (IOException x){
             System.out.println("Xay ra loi khi doc file, vui long thu lai.");
         }
@@ -89,79 +90,84 @@ public class App implements Constants{
                 file_name = sc.nextLine();
             }
             
-            FileWriter fw = new FileWriter(path + "\\" + file_name + ".txt");
-            BufferedWriter bw = new BufferedWriter(fw);
-            for (Phong ob:dsp){
-                bw.write(ob.toString());
-                bw.newLine();
+            if(path == null || file_name == null)
+                System.out.println("KO TIM THAY FILE GAN NHAT TRUOC DO DE GHI DE.");
+            else{
+                FileWriter fw = new FileWriter(path + "\\" + file_name + ".txt");
+                BufferedWriter bw = new BufferedWriter(fw);
+                for (Phong ob:dsp){
+                    bw.write(ob.toString());
+                    bw.newLine();
+                }
+                System.out.println("CAC THAY DOI DA DUOC LUU LAI.");
+                bw.close();
+                fw.close();
             }
-            bw.close();
-            fw.close();
         } catch (IOException x) {
             System.out.println("Xay ra loi khi ghi file, vui long thu lai.");
         } catch (NullPointerException y){
-            System.out.println("\nDANH SACH CHUA CO DU LIEU, VUI LONG THU LAI.");
+            System.out.println("\nLUU Y: MOT SO VI TRI TRONG DANH SACH CO THE CHUA CO DU LIEU.");
         }
     }
     
     //Hàm xuất danh sách phòng
     public void xuat_all(){
         try{
-            System.out.println("Xuat danh sach cac phong:\n");
-            int i = 0;
-            for (Phong ob:dsp){
-                System.out.printf("STT: %3d ", i);
-                ob.xuat();
-                i++;
+            if (dsp[0] == null)
+                System.out.println("DANH SACH CHUA CO DU LIEU, VUI LONG THU LAI.");
+            else{
+                System.out.println("Xuat danh sach cac phong:\n");
+                int i = 0;
+                for (Phong ob:dsp){
+                    System.out.printf("STT: %3d ", i);
+                    ob.xuat();
+                    i++;
+                }
             }
         } catch (NullPointerException y){
-            System.out.println("\nDANH SACH CHUA CO DU LIEU, VUI LONG THU LAI.");
+            System.out.println("( VI TRI NAY CHUA CO DU LIEU.)");
         }
     }
     
     //Hàm chèn thêm 1 phòng vào danh sách
     public void chen_ptu(){
-        try{
-            int k;
-            dsp = Arrays.copyOf(dsp, dsp.length + 1);
-
-            System.out.println("Nhap vi tri muon chen:");
-            while (true){
-                k = Integer.parseInt(sc.nextLine());
-                if (k < 0 || k >= dsp.length)
-                    System.out.println("Vi tri chen ko hop le, moi nhap lai:");
-                else
-                    break;
+        int k;
+        System.out.println("Nhap vi tri muon chen:");
+        while (true){
+            k = Integer.parseInt(sc.nextLine());
+            if (k < 0 || k >= dsp.length)
+                System.out.println("Vi tri chen ko hop le, moi nhap lai:");
+            else{
+                dsp = Arrays.copyOf(dsp, dsp.length + 1);
+                break;
             }
-
-            for(int i=dsp.length - 1; i>k; i--)
-                dsp[i] = dsp[i - 1];
-            dsp[k] = new Phong();
-            dsp[k].nhap();
-            System.out.println("\nLUU Y: CAC THAY DOI CHUA DUOC LUU LAI VAO FILE.");
-        } catch (NullPointerException y){
-            System.out.println("\nDANH SACH CHUA CO DU LIEU, VUI LONG THU LAI.");
         }
+
+        for(int i=dsp.length - 1; i>k; i--)
+            dsp[i] = dsp[i - 1];
+        dsp[k] = new Phong();
+        dsp[k].nhap();
+        System.out.println("\nLUU Y: CAC THAY DOI CHUA DUOC LUU LAI VAO FILE.");
     }
     
     //Hàm xóa 1 phòng từ danh sách
     public void xoa_ptu(){
-        try{
-            int x;
-            System.out.println("Nhap STT cua phong can xoa:");
-            while (true){
-                x = Integer.parseInt(sc.nextLine());
-                if (x < 0 || x >= dsp.length)
-                    System.out.println("STT can xoa ko hop le, moi nhap lai:");
-                else
-                    break;
-            }
+        int x;
+        System.out.println("Nhap STT cua phong can xoa:");
+        while (true){
+            x = Integer.parseInt(sc.nextLine());
+            if (x < 0 || x >= dsp.length)
+                System.out.println("STT can xoa ko hop le, moi nhap lai:");
+            else
+                break;
+        }
+        if (dsp[x] == null)
+            System.out.println("VI TRI NAY CHUA CO DU LIEU, KO THE XOA.");
+        else{
             for (int i=x; i<dsp.length - 1; i++)
                 dsp[i] = dsp[i + 1];
             dsp = Arrays.copyOf(dsp, dsp.length - 1);
             System.out.println("\nLUU Y: CAC THAY DOI CHUA DUOC LUU LAI VAO FILE.");
-        } catch (NullPointerException y){
-            System.out.println("\nDANH SACH CHUA CO DU LIEU, VUI LONG THU LAI.");
         }
     }
     
