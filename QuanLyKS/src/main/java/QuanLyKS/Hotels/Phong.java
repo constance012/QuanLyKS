@@ -141,7 +141,6 @@ public class Phong implements Constants{
     public void nhap(){
         try{
             setTenLoaiPhong();
-            //setID();
             setTenPhong();
             setTinhTrang();
             setSoNguoi();
