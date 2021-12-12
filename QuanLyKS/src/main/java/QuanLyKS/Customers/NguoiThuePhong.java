@@ -155,7 +155,7 @@ public class NguoiThuePhong extends ThuePhong implements Constants{
                 soTienThuePhong *= (super.getSoNgayThue() * 0.7);
             bill = new ChiTietHoaDon(maKH, tenKH, diaChi, email, soDT, soCMND, soNguoi, soNgayThue, maPhg, soTienThuePhong, soTienKhachTra, maHoaDon);
         } catch (NumberFormatException u){
-                System.out.println("\nLOI: Gia tri phai la 1 so.");
+                System.out.println("\nLOI: Gia tri nhap vao khong hop le.");
         }
     }
     
