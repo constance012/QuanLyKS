@@ -202,7 +202,7 @@ public class App implements Constants{
             boolean found = false;
             
             if (dsp[0] == null)
-                System.out.println("DANH SACH CHUA CO DU LIEU, VUI LONG THU LAI.");
+                System.out.println("DANH SACH CHUA CO DU LIEU, KHONG THE TIM KIEM.");
             else{
 		System.out.println("Ban muon tim phong theo thuoc tinh gi?");
 		System.out.println("('Loai phong' hay 'Tinh trang' hay 'So nguoi' hay 'ten phong')");
