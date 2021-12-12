@@ -52,10 +52,19 @@ public class Phong implements Constants{
     }
 
     public void setTinhTrang() {
-        System.out.println("Moi nhap tinh trang hien tai cua phong:");
-        tinhTrang = sc.nextLine();
-        tinhTrang = justify_String(tinhTrang);
-        this.tinhTrang = tinhTrang;
+        System.out.println("Phong hien tai da co nguoi thue chua? (yes or no):");
+        while (true){
+            tinhTrang = sc.nextLine();
+            tinhTrang = justify_String(tinhTrang).toLowerCase();
+            if (tinhTrang.startsWith("y")){
+                this.tinhTrang = "Da co nguoi";
+                break;
+            }
+            else{
+                this.tinhTrang = "Con trong";
+                break;
+            }
+        }
     }
     
     public void setTenLoaiPhong() {
