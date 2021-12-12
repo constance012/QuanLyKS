@@ -70,6 +70,8 @@ public class App implements Constants{
                 dsp[dsp.length-1] = new Phong(maSo,loai,ten,tinhTrang,soNguoi);
             }
             System.out.println("DOC FILE TEXT THANH CONG!");
+            br.close();
+            fr.close();
         } catch (IOException x){
             System.out.println("Xay ra loi khi doc file, vui long thu lai.");
         }
