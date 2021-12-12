@@ -322,6 +322,7 @@ public class App implements Constants{
                                 }
                                 booking[booking.length - 1].nhap(dsp[i].getID(), dsp[i].getGiaCa(), datCoc, maHD);
                                 maHD++;
+								System.out.println("DAT PHONG THANH CONG!");
                                 done = true;
                                 break;
                             } 
