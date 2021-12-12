@@ -298,44 +298,48 @@ public class App implements Constants{
             int x;
             boolean done = false;
             double datCoc;
-            System.out.println("DAT PHONG CHO KHACH HANG:\n");
-            System.out.println("Chon ma phong muon dat:");
-            while (true){
-                x = Integer.parseInt(sc.nextLine());
-                for (int i=0; i<dsp.length ;i++)
-                    //Nếu tìm thấy x trùng với 1 mã phòng nào đó
-                    if (dsp[i].getID() == x){
-                        //Nếu phòng con trống
-                        if (dsp[i].getTinhTrang().equalsIgnoreCase("con trong")){
-                            booking[booking.length - 1] = new NguoiThuePhong();
+            if (dsp[0] == null)
+                System.out.println("DANH SACH CHUA CO DU LIEU, KHONG THE TIEN HANH DAT PHONG.");
+            else{
+                System.out.println("DAT PHONG CHO KHACH HANG:\n");
+                System.out.println("Chon ma phong muon dat:");
+                while (true){
+                    x = Integer.parseInt(sc.nextLine());
+                    for (int i=0; i<dsp.length ;i++)
+                        //Nếu tìm thấy x trùng với 1 mã phòng nào đó
+                        if (dsp[i].getID() == x){
+                            //Nếu phòng con trống
+                            if (dsp[i].getTinhTrang().equalsIgnoreCase("con trong")){
+                                booking[booking.length - 1] = new NguoiThuePhong();
 
-                            System.out.println("Nhap so tien dat coc truoc cua khach:");
-                            while (true){
-                                datCoc = Double.parseDouble(sc.nextLine());
-                                if (datCoc < dsp[i].getGiaCa())
-                                    System.out.println("So tien dat coc nho hon gia ca cua phong, moi nhap lai:");
-                                else
-                                    break;
+                                System.out.println("Nhap so tien dat coc truoc cua khach:");
+                                while (true){
+                                    datCoc = Double.parseDouble(sc.nextLine());
+                                    if (datCoc < dsp[i].getGiaCa())
+                                        System.out.println("So tien dat coc nho hon gia ca cua phong, moi nhap lai:");
+                                    else
+                                        break;
+                                }
+                                booking[booking.length - 1].nhap(dsp[i].getID(), dsp[i].getGiaCa(), datCoc, maHD);
+                                maHD++;
+                                done = true;
+                                break;
+                            } 
+                            //Nếu phòng đã có người
+                            else{
+                                System.out.println("Phong da chon da co nguoi, vui long chon phong khac:");
+                                done = false;
+                                break;
                             }
-                            booking[booking.length - 1].nhap(dsp[i].getID(), dsp[i].getGiaCa(), datCoc, maHD);
-                            maHD++;
-                            done = true;
-                            break;
-                        } 
-                        //Nếu phòng đã có người
-                        else{
-                            System.out.println("Phong da chon da co nguoi, vui long chon phong khac:");
-                            done = false;
+                        }
+                        //Nếu chạy hết vòng for mà ko tìm thấy phòng phù hợp
+                        else if (i == dsp.length - 1){
+                            System.out.println("\nLOI: Ma phong da nhap ko ton tai, vui long nhap lai:");
                             break;
                         }
-                    }
-                    //Nếu chạy hết vòng for mà ko tìm thấy phòng phù hợp
-                    else if (i == dsp.length - 1){
-                        System.out.println("\nLOI: Ma phong da nhap ko ton tai, vui long nhap lai:");
-                        break;
-                    }
-                
-                if(done) break;
+
+                    if(done) break;
+                }
             }
         } catch (NullPointerException y){
             System.out.println("\nDANH SACH CHUA CO DU LIEU, VUI LONG THU LAI.");
