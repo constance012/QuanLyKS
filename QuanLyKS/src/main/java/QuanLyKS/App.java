@@ -362,6 +362,7 @@ public class App implements Constants{
                                 }
                                 booking[booking.length - 1].nhap(dsp[i].getID(), dsp[i].getGiaCa(), datCoc, maHD);
                                 maHD++;
+                                dsp[i].setTinhTrang();
                                 done = true;
                                 break;
                             } 
