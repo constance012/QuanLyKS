@@ -76,8 +76,8 @@ public class Phong implements Constants{
         System.out.println("Nhap ma so cua phong nay:");
         while (true){
             ID = Integer.parseInt(sc.nextLine());
-            if (ID <= 0)
-                System.out.println("Ma so khong hop le, moi nhap lai:");
+            if (Integer.toString(ID).length() < 3 || Integer.toString(ID).length() > 3)
+                System.out.println("Ma so phong chi co the chua 3 chu so, moi nhap lai:");
             else{
                 this.ID = ID;
                 break;}
