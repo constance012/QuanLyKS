@@ -56,9 +56,17 @@ public class LeTan implements Constants{
 
     public void setEmail() {
         System.out.println("Nhap email cua nhan vien le tan:");
-        email = sc.nextLine();
-        email = justify_String(email);
-        this.email = email;
+        while (true){
+            email = sc.nextLine();
+            email = email.trim();
+            while (email.contains(" "))
+                email = email.replace(" ", "");
+            if (!email.contains("@"))
+                System.out.println("Email ko hop le, moi nhap lai:");
+            else{
+                this.email = email; break;
+            }
+        }
     }
 
     public void setMaLT() {
