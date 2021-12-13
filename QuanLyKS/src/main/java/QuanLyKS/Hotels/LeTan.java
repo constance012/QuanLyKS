@@ -65,7 +65,7 @@ public class LeTan implements Constants{
         System.out.println("Nhap ma so cua nhan vien le tan:");
         while (true){
             maLT = Integer.parseInt(sc.nextLine());
-            if (maLT <= 0)
+            if (maLT <= 0 || maLT > 999)
                 System.out.println("Ma le tan ko hop le, moi nhap lai:");
             else{
                 this.maLT = maLT;
