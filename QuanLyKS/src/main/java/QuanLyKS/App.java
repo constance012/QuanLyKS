@@ -85,7 +85,7 @@ public class App implements Constants{
             input = sc.nextLine();
             input = input.trim();
             
-            if (input.toLowerCase().startsWith("y") == false){
+            if (!input.toLowerCase().startsWith("y")){
                 System.out.println("Nhap duong dan den file:");
                 path = sc.nextLine();
                 System.out.println("Nhap ten file:");
@@ -265,7 +265,7 @@ public class App implements Constants{
                                 found = true;
                                 j++;
                             }
-                            else if (i == dsp.length - 1 && found == false)
+                            else if (i == dsp.length - 1 && !found)
                                 System.out.println("Khong tim thay phong thoa yeu cau da cho!");
                         break;
                     }
@@ -283,7 +283,7 @@ public class App implements Constants{
                                 found = true;
                                 j++;
                             }
-                            else if (i == dsp.length - 1 && found == false)
+                            else if (i == dsp.length - 1 && !found)
                                 System.out.println("Khong tim thay phong thoa yeu cau da cho!");
                         break;
                     }
@@ -301,7 +301,7 @@ public class App implements Constants{
                                 found = true;
                                 j++;
                             }
-                            else if (i == dsp.length - 1 && found == false)
+                            else if (i == dsp.length - 1 && !found)
                                 System.out.println("Khong tim thay phong thoa yeu cau da cho!");
                         break;
                     }
@@ -319,7 +319,7 @@ public class App implements Constants{
                                 found = true;
                                 j++;
                             }
-                            else if (i == dsp.length - 1 && found == false)
+                            else if (i == dsp.length - 1 && !found)
                                 System.out.println("Khong tim thay phong thoa yeu cau da cho!");
                         break;
                     }
