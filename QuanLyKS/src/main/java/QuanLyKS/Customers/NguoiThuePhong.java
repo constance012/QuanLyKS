@@ -59,11 +59,17 @@ public class NguoiThuePhong extends ThuePhong implements Constants{
 
     public void setEmail() {
         System.out.println("Nhap email cua khach hang:");
-        email = sc.nextLine();
-        email = email.trim();
-        while (email.contains(" "))
-            email = email.replace(" ", "");
-        this.email = email;
+        while (true){
+            email = sc.nextLine();
+            email = email.trim();
+            while (email.contains(" "))
+                email = email.replace(" ", "");
+            if (!email.contains("@"))
+                System.out.println("Email ko hop le, moi nhap lai:");
+            else{
+                this.email = email; break;
+            }
+        }
     }
 
     public void setGioiTinh() {
