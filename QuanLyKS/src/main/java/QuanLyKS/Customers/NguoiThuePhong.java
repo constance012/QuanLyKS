@@ -113,7 +113,7 @@ public class NguoiThuePhong extends ThuePhong implements Constants{
         System.out.println("Nhap ma so cua khach hang:");
         while (true){
             maKH = Integer.parseInt(sc.nextLine());
-            if (maKH <= 0)
+            if (maKH <= 0 || maKH > 999)
                 System.out.println("Ma khach hang ko hop le, moi nhap lai:");
             else{
                 this.maKH = maKH; break;
