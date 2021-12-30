@@ -107,11 +107,11 @@ public class NguoiThuePhong extends ThuePhong implements Constants{
             soCMND = soCMND.trim();
             while (soCMND.contains(" "))
                 soCMND = soCMND.replace(" ", "");
-            if (soCMND.length() < 12 || soCMND.length() > 12)
-                System.out.println("So CMND phai du 12 chu so, moi nhap lai:");
-            else{
+            if (soCMND.length() == 12 || soCMND.length() == 9){
                 this.soCMND = soCMND; break;
             }
+            else
+                System.out.println("So CMND khong hop le, moi nhap lai:");
         }
     }
 
